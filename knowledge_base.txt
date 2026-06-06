@@ -1,0 +1,165 @@
+BOOKLEAF PUBLISHING — AUTHOR KNOWLEDGE BASE
+Version 2.1 | Updated January 2025
+============================================================
+
+SECTION 1: PUBLISHING PROCESS & TIMELINES
+------------------------------------------
+
+Q: How long does it take to publish my book after final submission?
+A: After you submit your final manuscript, the standard processing time is 45–60 days. This includes editorial review, typesetting, ISBN assignment, cover design finalisation, and upload to distribution platforms (Amazon, Flipkart, BookLeaf Store, etc.). You will receive an email confirmation once your book is live.
+
+Q: What happens after I submit my manuscript?
+A: After submission, your manuscript goes through the following stages:
+   Stage 1 — Editorial Check (7–10 days): Grammar, formatting, and consistency review.
+   Stage 2 — Typesetting & Layout (10–15 days): Your manuscript is formatted for print and digital.
+   Stage 3 — Cover Finalisation (5–7 days): Final cover design is locked.
+   Stage 4 — ISBN Assignment (1–2 days): Your unique ISBN is assigned and registered.
+   Stage 5 — Platform Upload (10–14 days): Book is uploaded to Amazon India, Flipkart, Google Play Books, and BookLeaf's own store.
+   Stage 6 — Go Live Confirmation: You receive an email with your live book links.
+
+Q: Can I track my book's publishing status?
+A: Yes. Log in to your BookLeaf Author Dashboard at dashboard.bookleaf.in using your registered email. Under "My Books", you will see the current stage your book is in. If you face login issues, email support@bookleaf.in with the subject "Dashboard Access Issue".
+
+Q: What if my book is delayed beyond 60 days?
+A: If your book has not gone live within 60 business days of your final submission confirmation email, please escalate to support@bookleaf.in with subject "Publishing Delay — [Your Book Title]". Our team will investigate within 48 hours.
+
+Q: Do I get an author proof before the book goes live?
+A: Yes. Authors enrolled in the Editorial Review add-on receive a digital proof PDF before the book is published. Authors without this add-on can request a one-time proof review for ₹999. For print proofs, an author copy must be ordered separately.
+
+
+SECTION 2: ROYALTIES & PAYMENTS
+---------------------------------
+
+Q: When will I receive my royalty payment?
+A: Royalties are calculated quarterly:
+   - Q1 (Jan–Mar) → Paid by April 30
+   - Q2 (Apr–Jun) → Paid by July 31
+   - Q3 (Jul–Sep) → Paid by October 31
+   - Q4 (Oct–Dec) → Paid by January 31 (next year)
+Royalties are eligible only for sales made after your book goes live. Your first royalty payment will be issued in the quarter after your book has been live for at least 30 days.
+
+Q: What is my royalty percentage?
+A: Standard royalty rates at BookLeaf:
+   - eBook (Amazon, Flipkart, Google Play): 50% of net revenue
+   - Paperback (Amazon, Flipkart): 15% of MRP after printing costs
+   - BookLeaf Store (direct): 60% of net revenue
+   Authors enrolled in the Bestseller Package receive a 5% bonus on all channels for 12 months.
+
+Q: How is royalty payment made?
+A: Payments are made via NEFT/RTGS to your registered bank account. You must submit your bank details through the Author Dashboard under "Payout Settings". Ensure PAN details are updated for TDS compliance. Payments below ₹500 are held and rolled into the next quarter.
+
+Q: I haven't received my royalty even though it's past the due date. What do I do?
+A: First, verify your bank details are correctly entered in the Dashboard. If the details are correct and it has been more than 5 business days past the payment date, email royalties@bookleaf.in with subject "Royalty Payment Issue — [Your Name] — [Quarter]".
+
+Q: Can I see a sales report?
+A: Yes. Log in to the Author Dashboard → My Books → Sales Report. Reports are updated weekly (every Monday). You can export reports as CSV or PDF.
+
+
+SECTION 3: AUTHOR COPIES & DELIVERY
+--------------------------------------
+
+Q: How do I order author copies?
+A: Log in to the Author Dashboard → My Books → Order Author Copies. You can order in packs of 1, 5, 10, or 25. Copies are printed on demand and dispatched within 7–10 business days. Delivery is via Speed Post or Delhivery courier.
+
+Q: What is the cost of author copies?
+A: Author copies are priced at printing cost + shipping:
+   - Thin books (< 150 pages): ₹120–₹180 per copy
+   - Standard books (150–350 pages): ₹180–₹280 per copy
+   - Thick books (> 350 pages): ₹280–₹450 per copy
+   Shipping: ₹60 within the same state, ₹90 pan-India.
+
+Q: How do I track my author copy shipment?
+A: Once dispatched, you will receive a tracking number via email and SMS. You can also track under Author Dashboard → My Orders. For delivery issues, contact courier@bookleaf.in.
+
+Q: Are author copies included in any package?
+A: The PR Campaign add-on includes 3 complimentary author copies. The Bestseller Package includes 5 complimentary copies. The Award Submission add-on includes 2 copies for submission purposes.
+
+
+SECTION 4: DASHBOARD ACCESS
+-----------------------------
+
+Q: How do I access my Author Dashboard?
+A: Visit dashboard.bookleaf.in and sign in with your registered email address. Your password was sent to you in the Welcome Email. If you cannot find it, click "Forgot Password" on the login page.
+
+Q: I am unable to log in to the dashboard. What should I do?
+A: Try these steps:
+   1. Use the email address you used to register with BookLeaf.
+   2. Click "Forgot Password" and check your inbox (including spam).
+   3. Clear browser cache and try again.
+   4. If still stuck, email support@bookleaf.in with subject "Dashboard Login Issue" and include your registered email.
+
+Q: What features are available in the Author Dashboard?
+A: The Author Dashboard includes:
+   - Book publishing status and stage tracker
+   - Sales reports (weekly updated)
+   - Royalty history and upcoming payment dates
+   - Author copy ordering
+   - Payout settings (bank account, PAN)
+   - Add-on service status
+   - Document downloads (agreement, ISBN certificate, author certificate)
+
+
+SECTION 5: ADD-ON SERVICES
+----------------------------
+
+Q: What is the Bestseller Package?
+A: The Bestseller Package is a marketing add-on that includes:
+   - Featured listing on the BookLeaf homepage for 30 days
+   - Social media promotion (Facebook, Instagram, LinkedIn) — 5 posts
+   - 5 complimentary author copies
+   - 5% bonus royalty for 12 months
+   - Inclusion in the quarterly BookLeaf Author Spotlight newsletter
+   Price: ₹14,999 (one-time)
+
+Q: What does the PR Campaign add-on include?
+A: The PR Campaign includes:
+   - Press release distributed to 50+ media outlets
+   - Author interview arranged with 2 literary blogs
+   - 3 complimentary author copies
+   - Book review outreach to Goodreads and Amazon reviewers
+   Price: ₹9,999 (one-time)
+
+Q: What is the Award Submission add-on?
+A: BookLeaf will submit your book to 3 major literary awards in India (Sahitya Akademi shortlist, Crossword Book Award, Raymond Crossword Book Award, or others depending on genre and eligibility). Includes:
+   - 2 physical copies sent for award submission
+   - Certificate of submission
+   - Eligibility evaluation by BookLeaf's editorial team
+   Price: ₹6,999 (one-time)
+
+Q: What is the Editorial Review add-on?
+A: An in-house senior editor reviews your full manuscript before typesetting. Includes:
+   - Line editing for grammar and flow
+   - Structural feedback (1 round)
+   - Digital author proof before publishing
+   Price: ₹7,999 (one-time)
+
+Q: How do I know if my add-on is active?
+A: Log in to Author Dashboard → My Add-ons. You will see the status (Active / Pending / Completed) and usage details for each add-on you have purchased.
+
+Q: Can I purchase an add-on after my book is already live?
+A: Yes. The PR Campaign and Award Submission can be purchased after your book is live. The Editorial Review add-on must be purchased before final submission. The Bestseller Package can be purchased any time within 90 days of your book going live.
+
+
+SECTION 6: CONTACT & SUPPORT
+------------------------------
+
+Q: What is BookLeaf's general support email?
+A: support@bookleaf.in — response within 1 business day.
+
+Q: What are BookLeaf's business hours?
+A: Monday to Saturday, 10:00 AM – 6:00 PM IST. Closed on national holidays.
+
+Q: Who do I contact for royalty issues?
+A: royalties@bookleaf.in
+
+Q: Who do I contact for editorial or manuscript queries?
+A: editorial@bookleaf.in
+
+Q: Who do I contact for technical issues with the dashboard?
+A: tech@bookleaf.in
+
+Q: Is there a WhatsApp support number?
+A: Yes. WhatsApp support is available at +91 98100 00000, Monday–Friday, 10 AM–5 PM IST. For faster responses, always share your registered email in the first message.
+
+============================================================
+END OF KNOWLEDGE BASE

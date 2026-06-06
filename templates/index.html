@@ -1,0 +1,703 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BookLeaf — Author Support</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ─── Design Tokens ─────────────────────────────────────────── */
+    :root {
+      --red:          #C8102E;
+      --red-deep:     #9B0C23;
+      --red-muted:    #E8455E;
+      --red-glow:     rgba(200,16,46,0.12);
+      --cream:        #FAF7F2;
+      --warm-white:   #FFFDF9;
+      --ink:          #1C1412;
+      --ink-muted:    #5C4A42;
+      --ink-light:    #9C8880;
+      --border:       rgba(200,16,46,0.15);
+      --surface:      #FFFFFF;
+      --surface-alt:  #F5F0EB;
+      --escalation:   #FF6B35;
+      --esc-bg:       rgba(255,107,53,0.08);
+      --success:      #2D7A5F;
+      --radius-sm:    6px;
+      --radius-md:    14px;
+      --radius-lg:    22px;
+      --radius-pill:  999px;
+      --shadow-card:  0 2px 16px rgba(28,20,18,0.08), 0 1px 4px rgba(28,20,18,0.06);
+      --shadow-msg:   0 1px 6px rgba(28,20,18,0.07);
+      --transition:   0.22s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    /* ─── Reset & Base ──────────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html, body {
+      height: 100%;
+      font-family: 'DM Sans', sans-serif;
+      background: var(--cream);
+      color: var(--ink);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ─── Background ────────────────────────────────────────────── */
+    body::before {
+      content: '';
+      position: fixed; inset: 0; z-index: 0;
+      background:
+        radial-gradient(ellipse 70% 50% at 100% 0%, rgba(200,16,46,0.06) 0%, transparent 60%),
+        radial-gradient(ellipse 50% 60% at 0% 100%, rgba(200,16,46,0.04) 0%, transparent 50%),
+        var(--cream);
+      pointer-events: none;
+    }
+
+    /* ─── Shell ─────────────────────────────────────────────────── */
+    .shell {
+      position: relative; z-index: 1;
+      display: flex; flex-direction: column;
+      height: 100vh; max-width: 760px;
+      margin: 0 auto;
+      padding: 0 16px;
+    }
+
+    /* ─── Header ────────────────────────────────────────────────── */
+    .header {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 20px 0 16px;
+      border-bottom: 1px solid var(--border);
+      flex-shrink: 0;
+    }
+
+    .header-brand {
+      display: flex; align-items: center; gap: 12px;
+    }
+
+    .logo-mark {
+      width: 40px; height: 40px; border-radius: 10px;
+      background: var(--red);
+      display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 2px 12px rgba(200,16,46,0.30);
+    }
+
+    .logo-mark svg { width: 22px; height: 22px; fill: white; }
+
+    .brand-text h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 18px; font-weight: 700;
+      color: var(--ink); letter-spacing: -0.3px;
+    }
+
+    .brand-text p {
+      font-size: 12px; color: var(--ink-light);
+      font-weight: 400; margin-top: 1px;
+    }
+
+    .status-dot {
+      display: flex; align-items: center; gap: 6px;
+      font-size: 12px; color: var(--success); font-weight: 500;
+    }
+
+    .status-dot::before {
+      content: '';
+      width: 7px; height: 7px; border-radius: 50%;
+      background: var(--success);
+      animation: pulse-dot 2s ease-in-out infinite;
+    }
+
+    @keyframes pulse-dot {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50%       { opacity: 0.6; transform: scale(1.2); }
+    }
+
+    /* ─── Email bar ──────────────────────────────────────────────── */
+    .email-bar {
+      padding: 14px 0 12px;
+      border-bottom: 1px solid var(--border);
+      flex-shrink: 0;
+    }
+
+    .email-bar label {
+      font-size: 11px; font-weight: 600;
+      color: var(--ink-light); letter-spacing: 0.08em;
+      text-transform: uppercase; display: block; margin-bottom: 6px;
+    }
+
+    .email-input-wrap {
+      display: flex; align-items: center; gap: 10px;
+    }
+
+    .email-input-wrap .icon {
+      color: var(--ink-light); flex-shrink: 0;
+      display: flex; align-items: center;
+    }
+
+    #authorEmail {
+      flex: 1;
+      border: 1.5px solid var(--border);
+      border-radius: var(--radius-pill);
+      background: var(--warm-white);
+      padding: 9px 16px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 14px; color: var(--ink);
+      outline: none;
+      transition: border-color var(--transition), box-shadow var(--transition);
+    }
+
+    #authorEmail::placeholder { color: var(--ink-light); }
+
+    #authorEmail:focus {
+      border-color: var(--red);
+      box-shadow: 0 0 0 3px var(--red-glow);
+    }
+
+    .email-badge {
+      display: none;
+      align-items: center; gap: 6px;
+      background: var(--red-glow); border: 1px solid var(--border);
+      border-radius: var(--radius-pill);
+      padding: 5px 12px;
+      font-size: 12px; font-weight: 500; color: var(--red-deep);
+    }
+
+    .email-badge.visible { display: flex; }
+
+    .email-badge button {
+      background: none; border: none; cursor: pointer;
+      color: var(--red); font-size: 14px; line-height: 1;
+      padding: 0; display: flex; align-items: center;
+    }
+
+    /* ─── Chat window ───────────────────────────────────────────── */
+    .chat-window {
+      flex: 1; overflow-y: auto;
+      padding: 20px 0;
+      display: flex; flex-direction: column; gap: 12px;
+    }
+
+    .chat-window::-webkit-scrollbar { width: 4px; }
+    .chat-window::-webkit-scrollbar-track { background: transparent; }
+    .chat-window::-webkit-scrollbar-thumb {
+      background: var(--border); border-radius: 4px;
+    }
+
+    /* ─── Message bubbles ────────────────────────────────────────── */
+    .msg-row {
+      display: flex; align-items: flex-end; gap: 10px;
+      animation: msg-in 0.28s cubic-bezier(0.34, 1.2, 0.64, 1) both;
+    }
+
+    @keyframes msg-in {
+      from { opacity: 0; transform: translateY(10px) scale(0.97); }
+      to   { opacity: 1; transform: translateY(0)  scale(1); }
+    }
+
+    .msg-row.user { flex-direction: row-reverse; }
+
+    .avatar {
+      width: 30px; height: 30px; border-radius: 50%;
+      flex-shrink: 0; display: flex; align-items: center; justify-content: center;
+      font-size: 14px;
+    }
+
+    .avatar.bot {
+      background: var(--red);
+      box-shadow: 0 2px 8px rgba(200,16,46,0.25);
+    }
+
+    .avatar.user { background: var(--surface-alt); font-size: 13px; }
+
+    .bubble {
+      max-width: 78%; padding: 12px 16px;
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-msg);
+      font-size: 14px; line-height: 1.6;
+      position: relative;
+    }
+
+    /* Bot bubble */
+    .msg-row.bot .bubble {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-bottom-left-radius: var(--radius-sm);
+      color: var(--ink);
+    }
+
+    /* User bubble */
+    .msg-row.user .bubble {
+      background: var(--red);
+      border-bottom-right-radius: var(--radius-sm);
+      color: white;
+    }
+
+    /* Escalation bubble */
+    .bubble.escalation {
+      background: var(--esc-bg);
+      border: 1.5px solid rgba(255,107,53,0.3);
+      color: var(--ink);
+    }
+
+    /* Markdown-ish formatting inside bubbles */
+    .bubble strong, .bubble b { font-weight: 600; }
+
+    .bubble p { margin-bottom: 6px; }
+    .bubble p:last-child { margin-bottom: 0; }
+
+    /* Confidence badge */
+    .conf-badge {
+      display: inline-flex; align-items: center; gap: 4px;
+      margin-top: 8px;
+      font-size: 10px; font-weight: 600;
+      letter-spacing: 0.05em; text-transform: uppercase;
+      padding: 2px 8px; border-radius: var(--radius-pill);
+      opacity: 0.7;
+    }
+
+    .conf-badge.high   { background: rgba(45,122,95,0.12);  color: var(--success); }
+    .conf-badge.medium { background: rgba(255,107,53,0.12); color: var(--escalation); }
+    .conf-badge.low    { background: rgba(255,107,53,0.15); color: var(--escalation); }
+    .conf-badge.esc    { background: rgba(200,16,46,0.10);  color: var(--red); }
+
+    /* Source label */
+    .source-label {
+      font-size: 10px; color: var(--ink-light);
+      margin-top: 4px; opacity: 0.6;
+    }
+
+    /* Typing indicator */
+    .typing-indicator {
+      display: none;
+      align-items: flex-end; gap: 10px;
+    }
+
+    .typing-indicator.visible { display: flex; }
+
+    .typing-dots {
+      display: flex; gap: 4px; align-items: center;
+      padding: 12px 16px;
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: var(--radius-lg); border-bottom-left-radius: var(--radius-sm);
+      box-shadow: var(--shadow-msg);
+    }
+
+    .typing-dots span {
+      width: 6px; height: 6px; border-radius: 50%;
+      background: var(--ink-light);
+      animation: bounce 1.2s ease-in-out infinite;
+    }
+
+    .typing-dots span:nth-child(2) { animation-delay: 0.2s; }
+    .typing-dots span:nth-child(3) { animation-delay: 0.4s; }
+
+    @keyframes bounce {
+      0%, 80%, 100% { transform: translateY(0); opacity: 0.4; }
+      40%            { transform: translateY(-5px); opacity: 1; }
+    }
+
+    /* Welcome message */
+    .welcome {
+      text-align: center; padding: 32px 16px 16px;
+    }
+
+    .welcome .icon-wrap {
+      width: 56px; height: 56px; margin: 0 auto 14px;
+      background: var(--red-glow); border: 1.5px solid var(--border);
+      border-radius: 16px;
+      display: flex; align-items: center; justify-content: center;
+    }
+
+    .welcome h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 20px; font-weight: 600;
+      color: var(--ink); margin-bottom: 8px;
+    }
+
+    .welcome p {
+      font-size: 13px; color: var(--ink-muted);
+      max-width: 380px; margin: 0 auto; line-height: 1.6;
+    }
+
+    .quick-btns {
+      display: flex; flex-wrap: wrap; gap: 8px;
+      justify-content: center; margin-top: 16px;
+    }
+
+    .quick-btn {
+      background: var(--surface); border: 1.5px solid var(--border);
+      border-radius: var(--radius-pill);
+      padding: 7px 14px;
+      font-size: 12px; font-weight: 500; color: var(--ink-muted);
+      cursor: pointer; font-family: 'DM Sans', sans-serif;
+      transition: all var(--transition);
+    }
+
+    .quick-btn:hover {
+      border-color: var(--red); color: var(--red);
+      background: var(--red-glow);
+      transform: translateY(-1px);
+    }
+
+    /* ─── Input area ─────────────────────────────────────────────── */
+    .input-area {
+      padding: 14px 0 20px;
+      border-top: 1px solid var(--border);
+      flex-shrink: 0;
+    }
+
+    .input-row {
+      display: flex; gap: 10px; align-items: flex-end;
+    }
+
+    #queryInput {
+      flex: 1;
+      border: 1.5px solid var(--border);
+      border-radius: var(--radius-lg);
+      background: var(--warm-white);
+      padding: 12px 16px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 14px; color: var(--ink);
+      resize: none; outline: none;
+      min-height: 46px; max-height: 140px;
+      line-height: 1.5;
+      transition: border-color var(--transition), box-shadow var(--transition);
+    }
+
+    #queryInput::placeholder { color: var(--ink-light); }
+
+    #queryInput:focus {
+      border-color: var(--red);
+      box-shadow: 0 0 0 3px var(--red-glow);
+    }
+
+    #sendBtn {
+      width: 46px; height: 46px; border-radius: 13px;
+      background: var(--red);
+      border: none; cursor: pointer; flex-shrink: 0;
+      display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 3px 10px rgba(200,16,46,0.30);
+      transition: all var(--transition);
+    }
+
+    #sendBtn:hover:not(:disabled) {
+      background: var(--red-deep);
+      box-shadow: 0 4px 14px rgba(200,16,46,0.40);
+      transform: translateY(-1px);
+    }
+
+    #sendBtn:active { transform: translateY(0); }
+
+    #sendBtn:disabled { opacity: 0.5; cursor: not-allowed; transform: none; }
+
+    #sendBtn svg { width: 18px; height: 18px; fill: white; }
+
+    .input-hint {
+      font-size: 11px; color: var(--ink-light);
+      margin-top: 8px; text-align: center;
+    }
+
+    /* ─── Escalation strip ───────────────────────────────────────── */
+    .esc-strip {
+      display: none;
+      align-items: center; gap: 8px;
+      background: var(--esc-bg);
+      border: 1px solid rgba(255,107,53,0.25);
+      border-radius: var(--radius-md);
+      padding: 10px 14px;
+      margin-bottom: 10px;
+      font-size: 12px; color: var(--escalation); font-weight: 500;
+    }
+
+    .esc-strip.visible { display: flex; }
+
+    /* ─── Scrollback fade ────────────────────────────────────────── */
+    .chat-fade {
+      position: sticky; bottom: 0;
+      height: 24px; pointer-events: none;
+      background: linear-gradient(to bottom, transparent, var(--cream));
+    }
+  </style>
+</head>
+
+<body>
+<div class="shell">
+
+  <!-- Header -->
+  <header class="header">
+    <div class="header-brand">
+      <div class="logo-mark">
+        <!-- Book icon -->
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path d="M6 2a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6H6zm7 1.5L18.5 8H13V3.5zM8 12h8v1.5H8V12zm0 3h6v1.5H8V15z"/>
+        </svg>
+      </div>
+      <div class="brand-text">
+        <h1>BookLeaf</h1>
+        <p>Author Support Bot</p>
+      </div>
+    </div>
+    <div class="status-dot">Online</div>
+  </header>
+
+  <!-- Email bar -->
+  <div class="email-bar">
+    <label for="authorEmail">Your Registered Email</label>
+    <div class="email-input-wrap">
+      <span class="icon">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="2" y="4" width="20" height="16" rx="2"/>
+          <path d="m22 7-10 5L2 7"/>
+        </svg>
+      </span>
+      <input
+        type="email"
+        id="authorEmail"
+        placeholder="e.g. priya.sharma@gmail.com"
+        autocomplete="email"
+      />
+      <div class="email-badge" id="emailBadge">
+        <span id="emailBadgeText"></span>
+        <button onclick="clearEmail()" title="Clear email">✕</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Chat window -->
+  <div class="chat-window" id="chatWindow">
+
+    <!-- Welcome -->
+    <div class="welcome" id="welcomeMsg">
+      <div class="icon-wrap">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--red)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+        </svg>
+      </div>
+      <h2>Hi, Author! 👋</h2>
+      <p>I can answer your questions about publishing timelines, royalties, author copies, add-ons, and more. Enter your registered email above for account-specific answers.</p>
+      <div class="quick-btns">
+        <button class="quick-btn" onclick="quickAsk('Is my book live yet?')">Is my book live?</button>
+        <button class="quick-btn" onclick="quickAsk('When will I receive my royalty payment?')">Royalty status</button>
+        <button class="quick-btn" onclick="quickAsk('Where is my author copy?')">Author copy</button>
+        <button class="quick-btn" onclick="quickAsk('What add-on services do I have?')">My add-ons</button>
+        <button class="quick-btn" onclick="quickAsk('How do I access my author dashboard?')">Dashboard help</button>
+        <button class="quick-btn" onclick="quickAsk('What is my ISBN number?')">My ISBN</button>
+      </div>
+    </div>
+
+    <!-- Escalation strip -->
+    <div class="esc-strip" id="escStrip">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="12" cy="12" r="10"/>
+        <line x1="12" y1="8" x2="12" y2="12"/>
+        <line x1="12" y1="16" x2="12.01" y2="16"/>
+      </svg>
+      Last query escalated to a human agent for review.
+    </div>
+
+    <!-- Typing indicator -->
+    <div class="typing-indicator" id="typingIndicator">
+      <div class="avatar bot">📚</div>
+      <div class="typing-dots">
+        <span></span><span></span><span></span>
+      </div>
+    </div>
+
+  </div><!-- end chat-window -->
+
+  <!-- Input area -->
+  <div class="input-area">
+    <div class="input-row">
+      <textarea
+        id="queryInput"
+        placeholder="Ask something… e.g. 'Is my book live yet?'"
+        rows="1"
+      ></textarea>
+      <button id="sendBtn" onclick="sendMessage()" title="Send">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/>
+        </svg>
+      </button>
+    </div>
+    <p class="input-hint">Press Enter to send · Shift+Enter for new line</p>
+  </div>
+
+</div><!-- end shell -->
+
+
+<script>
+  // ── State ──────────────────────────────────────────────────────────────────
+  const chatWindow     = document.getElementById('chatWindow');
+  const typingIndicator = document.getElementById('typingIndicator');
+  const queryInput     = document.getElementById('queryInput');
+  const sendBtn        = document.getElementById('sendBtn');
+  const emailInput     = document.getElementById('authorEmail');
+  const emailBadge     = document.getElementById('emailBadge');
+  const emailBadgeText = document.getElementById('emailBadgeText');
+  const welcomeMsg     = document.getElementById('welcomeMsg');
+  const escStrip       = document.getElementById('escStrip');
+
+  let isLoading = false;
+
+  // ── Email badge logic ──────────────────────────────────────────────────────
+  emailInput.addEventListener('blur', () => {
+    const val = emailInput.value.trim();
+    if (val && val.includes('@')) {
+      emailBadgeText.textContent = val;
+      emailBadge.classList.add('visible');
+      emailInput.style.display = 'none';
+    }
+  });
+
+  function clearEmail() {
+    emailInput.value = '';
+    emailBadge.classList.remove('visible');
+    emailInput.style.display = '';
+    emailInput.focus();
+  }
+
+  // ── Auto-resize textarea ──────────────────────────────────────────────────
+  queryInput.addEventListener('input', () => {
+    queryInput.style.height = 'auto';
+    queryInput.style.height = Math.min(queryInput.scrollHeight, 140) + 'px';
+  });
+
+  // ── Enter to send ─────────────────────────────────────────────────────────
+  queryInput.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter' && !e.shiftKey) {
+      e.preventDefault();
+      sendMessage();
+    }
+  });
+
+  // ── Quick-ask shortcuts ───────────────────────────────────────────────────
+  function quickAsk(text) {
+    queryInput.value = text;
+    sendMessage();
+  }
+
+  // ── Main send logic ───────────────────────────────────────────────────────
+  async function sendMessage() {
+    const query = queryInput.value.trim();
+    const email = emailInput.value.trim() || emailBadgeText.textContent.trim();
+
+    if (!query || isLoading) return;
+
+    // Hide welcome on first message
+    if (welcomeMsg) welcomeMsg.style.display = 'none';
+    escStrip.classList.remove('visible');
+
+    // Append user bubble
+    appendMessage('user', query);
+
+    queryInput.value = '';
+    queryInput.style.height = 'auto';
+    setLoading(true);
+
+    try {
+      const res = await fetch('/chat', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email, query }),
+      });
+
+      if (!res.ok) {
+        const err = await res.json().catch(() => ({}));
+        throw new Error(err.error || `HTTP ${res.status}`);
+      }
+
+      const data = await res.json();
+      appendBotMessage(data);
+
+      // Show escalation strip
+      if (data.escalated) {
+        escStrip.classList.add('visible');
+      }
+
+    } catch (err) {
+      appendMessage('bot', ` Could not reach the server: ${err.message}. Please try again.`, {
+        escalation: true,
+        confidence: null,
+      });
+    } finally {
+      setLoading(false);
+    }
+  }
+
+  // ── Loading state ─────────────────────────────────────────────────────────
+  function setLoading(state) {
+    isLoading = state;
+    sendBtn.disabled = state;
+    typingIndicator.classList.toggle('visible', state);
+    if (state) scrollBottom();
+  }
+
+  // ── Append user bubble ─────────────────────────────────────────────────────
+  function appendMessage(role, text, opts = {}) {
+    const row = document.createElement('div');
+    row.className = `msg-row ${role}`;
+
+    const avatar = document.createElement('div');
+    avatar.className = `avatar ${role}`;
+    avatar.textContent = role === 'bot' ? '📚' : '👤';
+
+    const bubble = document.createElement('div');
+    bubble.className = `bubble${opts.escalation ? ' escalation' : ''}`;
+    bubble.innerHTML = formatText(text);
+
+    if (opts.confidence !== undefined && opts.confidence !== null) {
+      const badge = document.createElement('div');
+      const pct = Math.round(opts.confidence * 100);
+      badge.className = `conf-badge ${pct >= 80 ? 'high' : pct >= 60 ? 'medium' : 'low'}`;
+      badge.textContent = `${pct}% confidence`;
+      bubble.appendChild(badge);
+    }
+
+    if (opts.source) {
+      const src = document.createElement('div');
+      src.className = 'source-label';
+      const labels = { db: ' from your account', kb: '📖 from knowledge base', escalation: '🔀 escalated', no_match: '🔍 no account found', db_error: '⚠️ db error' };
+      src.textContent = labels[opts.source] || opts.source;
+      bubble.appendChild(src);
+    }
+
+    row.appendChild(avatar);
+    row.appendChild(bubble);
+
+    // Insert before typing indicator
+    chatWindow.insertBefore(row, typingIndicator);
+    scrollBottom();
+  }
+
+  // ── Append bot response ────────────────────────────────────────────────────
+  function appendBotMessage(data) {
+    appendMessage('bot', data.response, {
+      confidence: data.confidence,
+      escalation: data.escalated,
+      source: data.source,
+    });
+  }
+
+  // ── Format markdown-lite text ──────────────────────────────────────────────
+  function formatText(text) {
+    return text
+      // bold
+      .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
+      // line breaks
+      .replace(/\n\n/g, '<br><br>')
+      .replace(/\n/g, '<br>');
+  }
+
+  // ── Scroll to bottom ──────────────────────────────────────────────────────
+  function scrollBottom() {
+    setTimeout(() => {
+      chatWindow.scrollTop = chatWindow.scrollHeight;
+    }, 40);
+  }
+</script>
+
+</body>
+</html>

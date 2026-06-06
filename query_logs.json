@@ -1,0 +1,162 @@
+[
+  {
+    "timestamp": "2026-06-06T06:49:40.112368Z",
+    "email": "priya.sharma@gmail.com",
+    "query": "Is my book live yet?",
+    "intent": "book_live_status",
+    "response": " I wasn't confident enough to automatically answer your query (confidence: 65%). Your message has been logged and will be reviewed by a BookLeaf support agent.\n\n**What happens next:**\nOur team will respond to your registered email within 1 business day (Mon–Sat, 10 AM–6 PM IST).\n\nFor urgent queries: WhatsApp +91 98100 00000 or email support@bookleaf.in.",
+    "confidence": 0.65,
+    "escalated": true,
+    "source": "escalation"
+  },
+  {
+    "timestamp": "2026-06-06T06:50:15.584204Z",
+    "email": "vikram.iyer@gmail.com",
+    "query": "Is my book live yet?",
+    "intent": "book_live_status",
+    "response": " I wasn't confident enough to automatically answer your query (confidence: 65%). Your message has been logged and will be reviewed by a BookLeaf support agent.\n\n**What happens next:**\nOur team will respond to your registered email within 1 business day (Mon–Sat, 10 AM–6 PM IST).\n\nFor urgent queries: WhatsApp +91 98100 00000 or email support@bookleaf.in.",
+    "confidence": 0.65,
+    "escalated": true,
+    "source": "escalation"
+  },
+  {
+    "timestamp": "2026-06-06T06:55:08.995798Z",
+    "email": "vikram.iyer@gmail.com",
+    "query": "Is my book live yet?",
+    "intent": "book_live_status",
+    "response": " I wasn't confident enough to automatically answer your query (confidence: 65%). Your message has been logged and will be reviewed by a BookLeaf support agent.\n\n**What happens next:**\nOur team will respond to your registered email within 1 business day (Mon–Sat, 10 AM–6 PM IST).\n\nFor urgent queries: WhatsApp +91 98100 00000 or email support@bookleaf.in.",
+    "confidence": 0.65,
+    "escalated": true,
+    "source": "escalation"
+  },
+  {
+    "timestamp": "2026-06-06T06:58:09.351323Z",
+    "email": "vikram.iyer@gmail.com",
+    "query": "Is my book live yet?",
+    "intent": "book_live_status",
+    "response": "Hi Vikram! Your book **\"Code and Karma\"** is not yet live. Your final submission was received on **2025-02-10**. Standard publishing takes 45–60 days from submission. We'll email you once your book is live! ",
+    "confidence": 0.65,
+    "escalated": false,
+    "source": "db"
+  },
+  {
+    "timestamp": "2026-06-06T07:00:39.494281Z",
+    "email": "vikram.iyer@gmail.com",
+    "query": "Is my book live yet?",
+    "intent": "book_live_status",
+    "response": "Hi Vikram! Your book **\"Code and Karma\"** is not yet live. Your final submission was received on **2025-02-10**. Standard publishing takes 45–60 days from submission. We'll email you once your book is live! ",
+    "confidence": 0.65,
+    "escalated": false,
+    "source": "db"
+  },
+  {
+    "timestamp": "2026-06-06T07:05:55.670972Z",
+    "email": "vikram.iyer@gmail.com",
+    "query": "Is my book live yet?",
+    "intent": "book_live_status",
+    "response": "Hi Vikram! Your book **\"Code and Karma\"** is not yet live. Your final submission was received on **2025-02-10**. Standard publishing takes 45–60 days from submission. We'll email you once your book is live! ",
+    "confidence": 0.65,
+    "escalated": false,
+    "source": "db"
+  },
+  {
+    "timestamp": "2026-06-06T07:10:45.434830Z",
+    "email": "vikram.iyer@gmail.com",
+    "query": "Is my book live yet?",
+    "intent": "book_live_status",
+    "response": "Hi Vikram! Your book **\"Code and Karma\"** is not yet live. Your final submission was received on **2025-02-10**. Standard publishing takes 45–60 days from submission. We'll email you once your book is live! ",
+    "confidence": 0.8,
+    "escalated": false,
+    "source": "db"
+  },
+  {
+    "timestamp": "2026-06-06T07:11:49.156084Z",
+    "email": "priya.sharma@gmail.com",
+    "query": "Is my book live yet?",
+    "intent": "book_live_status",
+    "response": "Hi Priya!  Your book **\"Echoes of the Yamuna\"** went live on **2025-01-10**. It's available on Amazon, Flipkart, Google Play Books, and the BookLeaf store. You can verify the links by logging into your Author Dashboard.",
+    "confidence": 0.8,
+    "escalated": false,
+    "source": "db"
+  },
+  {
+    "timestamp": "2026-06-06T07:12:13.863151Z",
+    "email": "arjun.mehta@hotmail.com",
+    "query": "What is my royalty status?",
+    "intent": "royalty_status",
+    "response": "Hi Arjun!  Here's your royalty status for **\"The Silent Monsoon\"**:\n\n**Status:** Processing – Expected 2025-06-30\n\nRoyalties are paid quarterly (Q1→Apr 30, Q2→Jul 31, Q3→Oct 31, Q4→Jan 31). You can view your full sales report on the Author Dashboard.",
+    "confidence": 0.8,
+    "escalated": false,
+    "source": "db"
+  },
+  {
+    "timestamp": "2026-06-06T07:12:59.720785Z",
+    "email": "sunita.agarwal@rediffmail.com",
+    "query": "Where is my author copy",
+    "intent": "author_copy",
+    "response": "Hi Sunita!  Your book **\"Rajasthani Kitchen Secrets\"** is live (since 2024-11-20), so you can order author copies anytime.\n\n**Your Add-ons:** PR Campaign, Bestseller Package, Award Submission\n\nTo order copies: Dashboard → My Books → Order Author Copies. Dispatch takes 7–10 business days via Speed Post/Delhivery.",
+    "confidence": 0.8,
+    "escalated": false,
+    "source": "db"
+  },
+  {
+    "timestamp": "2026-06-06T07:13:23.708285Z",
+    "email": "fatima.khan@gmail.com",
+    "query": "What add-on services do I have?",
+    "intent": "add_on_status",
+    "response": "Hi Fatima!  Here are the add-on services on your account for **\"Shades of Lucknow\"**:\n\n**Active Add-ons:** Editorial Review, Bestseller Package\n\nFor detailed status (Active / Pending / Completed) on each add-on, visit: Dashboard → My Add-ons. Questions? Email support@bookleaf.in.",
+    "confidence": 0.8,
+    "escalated": false,
+    "source": "db"
+  },
+  {
+    "timestamp": "2026-06-06T07:13:46.849794Z",
+    "email": "suresh.kumar@yahoo.co.in",
+    "query": "What is my ISBN?",
+    "intent": "isbn_query",
+    "response": "Hi Suresh!  The ISBN for **\"Villages I Never Left\"** is:\n\n**ISBN:** 978-93-5741-210-6\n\nYour ISBN certificate is available for download under Dashboard → Documents.",
+    "confidence": 0.8,
+    "escalated": false,
+    "source": "db"
+  },
+  {
+    "timestamp": "2026-06-06T07:14:15.482796Z",
+    "email": "rohit.desai@outlook.com",
+    "query": "When did I submit my manuscript?",
+    "intent": "submission_date",
+    "response": "Hi Rohit!  Your final manuscript submission date for **\"Mumbai Noir: Three Stories\"** is recorded as:\n\n**Submission Date:** 2025-01-08\n\nIf this looks incorrect, please email editorial@bookleaf.in.",
+    "confidence": 0.9,
+    "escalated": false,
+    "source": "db"
+  },
+  {
+    "timestamp": "2026-06-06T07:14:34.093170Z",
+    "email": "rohit.desai@outlook.com",
+    "query": "How do I log in to the dashboard?",
+    "intent": "general_faq",
+    "response": "📖 **BookLeaf Knowledge Base:**\n\nQ: How do I order author copies?\nA: Log in to the Author Dashboard → My Books → Order Author Copies. You can order in packs of 1, 5, 10, or 25. Copies are printed on demand and dispatched within 7–10 business days. Delivery is via Speed Post or Delhivery courier.\n\n*For account-specific queries, please include your registered email.*",
+    "confidence": 0.8,
+    "escalated": false,
+    "source": "kb"
+  },
+  {
+    "timestamp": "2026-06-06T07:15:14.302268Z",
+    "email": "nobody@fake.com",
+    "query": "Is my book live?",
+    "intent": "book_live_status",
+    "response": "I couldn't find an account matching **nobody@fake.com**. Please double-check your registered email address. If you registered with a different email, try that — or contact support@bookleaf.in for help locating your account.",
+    "confidence": 0.8,
+    "escalated": false,
+    "source": "no_match"
+  },
+  {
+    "timestamp": "2026-06-06T07:15:31.094397Z",
+    "email": "nobody@fake.com",
+    "query": "asdfjkl random gibberish",
+    "intent": "unknown",
+    "response": " I wasn't confident enough to automatically answer your query (confidence: 0%). Your message has been logged and will be reviewed by a BookLeaf support agent.\n\n**What happens next:**\nOur team will respond to your registered email within 1 business day (Mon–Sat, 10 AM–6 PM IST).\n\nFor urgent queries: WhatsApp +91 98100 00000 or email support@bookleaf.in.",
+    "confidence": 0.0,
+    "escalated": true,
+    "source": "escalation"
+  }
+]
